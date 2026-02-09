@@ -448,7 +448,7 @@ class OCAtari(gym.Env):
         """
         Returns the current neurosymbolic state of the environment.
         """
-        return list(chain.from_iterable([o._nsrepr for o in self.objects]))
+        return list(chain.from_iterable([o._nsrepr for o in self.objects if o is not None]))
 
     def render_explanations(self):
         # Render explanations by highlighting the objects with bounding boxes
